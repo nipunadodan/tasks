@@ -9,7 +9,11 @@ class User{
             'username' => $username
         ]);
         if (password_verify($password, $user[0]['password'])) {
-            return true;
+            return [
+                'login' => true,
+                'user_id' => $user[0]['id'],
+                'username' => $user[0]['username']
+            ];
         }else{
             return false;
         }
@@ -19,7 +23,7 @@ class User{
         if(isset($_SESSION, $_SESSION['login'], $_SESSION['user_id']) && $_SESSION['login'] == 'Ok' && $_SESSION['user_id'] !== ''){
             return true;
         }else{
-            return true;
+            return false;
         }
     }
 }

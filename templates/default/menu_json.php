@@ -8,6 +8,12 @@ $menu = [
             'sub' => ''
         ],
         [
+            'name' => 'Tasks',
+            'link' => 'tasks',
+            'icon' => 'tasks',
+            'sub' => ''
+        ],
+        [
             'name' => 'Sub Links',
             'link' => '#',
             'icon' => 'wallet',

@@ -1,11 +1,11 @@
 <div class="container">
     <div class="row min-vh-100 justify-content-center align-items-center">
-        <div class="col-md-4 shadow-lg rounded">
+        <div class="col-md-4 rounded">
             <div class="row">
                 <div class="col-md-12 bg-white py-5 px-3 rounded-right">
                     <h1 class="SF-thin">Login</h1>
 
-                    <form class="form ajax" name="login" method="post" data-func="o1" data-redirect="" data-popup="yes">
+                    <form class="form ajax" name="login" method="post" data-process="login" data-callback="login" data-redirect="" data-popup="yes">
                         <div class="row">
                             <div class="col-12">
                                 <label for="username" class="m-0">Username</label>

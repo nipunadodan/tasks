@@ -77,7 +77,7 @@ $(document).ready(function () {
         const callback = $(this).data('callback'); //function to run after the process
         const serializedForm = $(this).serialize();
         const method = $(this).attr('method');
-        ajaxDirect(process, serializedForm, 'No', callback, method);
+        ajaxDirect(process, serializedForm);
     });
 });
 
@@ -100,6 +100,31 @@ after_functions['weather'] = function (json){
 };
 
 after_functions['login'] = function (json){
-    //console.log(json);
+    if(json.status == 'success')
+        location.reload();
+    else
+        responseModal('danger', 'Login not successful. lease login again.')
 };
+
+after_functions['tasks-list'] = function (json){
+    //console.log(json);
+    if(json.status == 'success'){
+        let tasks = JSON.parse(json.message);
+        let table = '';
+        $.each(tasks, function (key,val){
+            table += '<tr '+val.ID+'>';
+            table += '<td>'+val.ID+'</td>';
+            table += '<td>'+val.title+'</td>';
+            table += '<td>'+val.description+'</td>';
+            table += '<td>'+val.category+'</td>';
+            table += '<td>'+val.priority+'</td>';
+            table += '<td>'+val.status+'</td>';
+            table += '<td>'+val.username+'</td>';
+            table += '</tr>';
+        });
+        $('#tasks-list tbody').html(table);
+    }else{
+        responseModal('danger','No records found');
+    }
+}
 /*=========================================================*/

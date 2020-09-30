@@ -14,7 +14,10 @@ if (isset($_POST['username'], $_POST['password'])) {
 
     $verify = $current_user->login($username, $nothashpw);
     //print_r($verify);
-    if ($verify == true) {
+    if ($verify['login'] == true) {
+        $_SESSION['login'] = true;
+        $_SESSION['user_id'] = $verify['user_id'];
+        $_SESSION['username'] = $verify['username'];
         $return = array(
             'message' => 'Login Success.',
             'status' => 'success'
