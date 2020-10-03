@@ -22,12 +22,23 @@
     <input name="title" id="title" placeholder="Title" />
     <label for="description">Description</label>
     <textarea name="description" id="description" placeholder="Description"></textarea>
+    <label for="category">Category</label>
+    <select name="category" id="category">
+        <option value="0">Select a category</option>
+    </select>
     <label for="type">Type</label>
     <select name="type" id="type">
         <option value="0">Select a type</option>
         <option value="1" selected>Task</option>
         <option value="2">Issue</option>
         <option value="3">Bug</option>
+    </select>
+    <label for="priority">Priority</label>
+    <select name="priority" id="priority">
+        <option value="1">Very High</option>
+        <option value="2" selected>High</option>
+        <option value="3">Low</option>
+        <option value="4">Very Low</option>
     </select>
 </div>
 
@@ -37,10 +48,10 @@ ajaxDirect('tasks-list',{},'No','post','tasks-get-process');
 $('#task-new-btn').on('click',function (){
     $('div#task-new').appendTo('#formModal .modal-body');
     $('form.modal-form').attr({
-        'id': 'short-edit-form',
-        'name': 'short-edit-form',
+        'id': 'task-add',
+        'name': 'task-add-form',
         'method': 'post',
-        'data-func': 'short-edit',
+        'data-process': 'task-add',
         'data-validation': 'yes'
     });
     $('#formModal #form-modal-title').html('New task');

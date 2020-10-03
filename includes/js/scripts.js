@@ -83,8 +83,8 @@ $(document).ready(function () {
 
 /*===================================================*/
 var validate = [];
-var after_functions = [];
 var before_functions = [];
+var after_functions = [];
 
 validate['functionNameHere'] = function () {
 
@@ -125,6 +125,16 @@ after_functions['tasks-list'] = function (json){
         $('#tasks-list tbody').html(table);
     }else{
         responseModal('danger','No records found');
+    }
+}
+
+after_functions['task-add'] = function (json){
+    if(json.status === 'success'){
+        $('.modal').modal('hide')
+        responseModal('success',json.message);
+        ajaxDirect('tasks-list',{},'No','post','tasks-get-process');
+    }else{
+        responseModal('danger',json.message);
     }
 }
 /*=========================================================*/

@@ -21,7 +21,7 @@
 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered border-0" role="document">
         <div class="modal-content border-0 ">
-            <form class="form modal-form" name="">
+            <form class="form modal-form ajax" name="">
                 <div class="modal-header d-block border-0 pt-5 bg-info text-white">
                     <div class="text-center">
                         <i class="la la-stream" id="form-modal-icon"></i>
